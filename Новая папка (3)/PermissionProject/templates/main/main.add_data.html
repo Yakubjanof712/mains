@@ -1,0 +1,9 @@
+{% if user.has_perm 'main.add_data' %}
+    <!-- Content to display if the user has permission -->
+{% endif %}
+{% if user.has_perm 'main.add_data' %}
+    <button>Add Data</button>
+{% else %}
+    <p>You do not have permission to add data.</p>
+{% endif %}
+{% if user.has_perm 'main.add_data' %}

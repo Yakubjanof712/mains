@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Main betiga xush kelibsiz</h1>
+    <p>Bu index beti.</p>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
+<h1>Main betiga xush kelibsiz</h1>
+
+{% if user.has_perm('main.add_data') %}
+    <a href="{% url 'add_data' %}">Ma'lumot qo'shish</a>
+{% endif %}
+
+{% if user.has_perm('main.change_data') %}
+    <a href="{% url 'update_data' data.id %}">Ma'lumotni o'zgartirish</a>
+{% endif %}
+
+{% if user.has_perm('main.delete_data') %}
+    <a href="{% url 'delete_data' data.id %}">Ma'lumotni o'chirish</a>
+{% endif %}
